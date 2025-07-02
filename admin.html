@@ -1,22 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- admin.html (Updated with Brand Colors, Fonts, Blog Links) --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel | Gujarat Engineering Academy</title>
   <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins&display=swap" rel="stylesheet">
   <script type="module" src="admin.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #11212D;
+      color: #F5D6A0;
+      padding: 20px;
+    }
+    h2 {
+      font-family: 'Cinzel Decorative', cursive;
+      color: #F5D6A0;
+    }
+    h3 {
+      color: #FFE4B5;
+    }
+    #logoutBtn {
+      background-color: #F5D6A0;
+      color: #11212D;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #logoutBtn:hover {
+      background-color: #FFE4B5;
+    }
+    a {
+      color: #FFE4B5;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
   <h2>Welcome to Admin Panel</h2>
   <p id="userEmail"></p>
-  <button id="logoutBtn">Logout</button>
-
-  <hr/>
-
+  <button id="logoutBtn">Logout</button>  <hr/>
   <h3>Quick Actions</h3>
   <ul>
-    <li><a href="blog.html">Manage Blogs</a></li>
-    <li><a href="team.html">Edit Team Page</a></li>
-  </ul>
+    <li><a href="blog-create.html">➕ Create New Blog</a></li>
+    <li><a href="blog-manage.html">🛠️ Manage Existing Blogs</a></li>
+    <li><a href="blog-view.html">📖 View All Blogs</a></li>
+    <li><a href="team.html">👥 Edit Team Page</a></li>
+  </ul>  <!-- WhatsApp Button -->  <a href="https://wa.me/919999999999" class="whatsapp" target="_blank" title="Contact on WhatsApp">
+    💬
+  </a>
 </body>
 </html>
