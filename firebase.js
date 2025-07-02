@@ -1,24 +1,27 @@
 // firebase.js
 
-// Firebase App અને Auth Import કરો (Google CDN થી)
+// Firebase SDK ના જરૂરી ફંક્શન ઇમ્પોર્ટ કરો
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-// તમારું Firebase Project Config (સાચા ID values નાખેલા છે)
+// તમારું Firebase પ્રોજેક્ટ config
 const firebaseConfig = {
-  apiKey: "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y",
-  authDomain: "gujarat-engineering.firebaseapp.com",
-  projectId: "gujarat-engineering",
-  storageBucket: "gujarat-engineering.appspot.com",
+  apiKey: "AIzaSyAmGSYe-IOkba8to5KglWQwtWDoYeWa-n0",
+  authDomain: "gujarat-engineering-academy.firebaseapp.com",
+  projectId: "gujarat-engineering-academy",
+  storageBucket: "gujarat-engineering-academy.appspot.com",
   messagingSenderId: "36947720573",
-  appId: "1:36947720573:web:0c4f521895cb7298b7b414"
+  appId: "1:36947720573:web:0c4f521895cb7298b7b414",
+  measurementId: "G-1RJHZHCS0H"
 };
 
-// Firebase App Initialize કરો
+// Firebase App ને Initialize કરો
 const app = initializeApp(firebaseConfig);
 
-// Firebase Auth Object મેળવો
+// Analytics અને Authentication initial કરો
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-// Export કરો જેથી Signup/Login ફાઈલમાં ઉપયોગ કરી શકો
+// Export auth object for use in login/register
 export { auth };
