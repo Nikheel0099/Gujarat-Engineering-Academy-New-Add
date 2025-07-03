@@ -31,11 +31,6 @@ nav a {
   margin: 10px 15px;
   color: #F5D6A0;
   text-decoration: none;
-  cursor: pointer;
-}
-
-nav a:hover {
-  color: #FF4081;
 }
 
 h2 {
@@ -88,22 +83,13 @@ footer {
       <a href="team.html">Team</a>
       <a href="info.html">Info</a>
       <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
     </nav>
   </header>  <main style="padding: 20px;">
     <h2>👥 Our Team</h2>
     <div id="teamContainer"></div>
   </main>  <footer>
     &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
-  </footer>  <script>
-    // Add event listeners to fix broken nav links if needed
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (!href.includes(".html")) {
-          e.preventDefault();
-          window.location.href = href + ".html";
-        }
-      });
-    });
-  </script></body>
+  </footer>
+</body>
 </html>
