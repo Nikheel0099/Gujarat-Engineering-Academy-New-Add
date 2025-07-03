@@ -1,13 +1,87 @@
+<!-- signup.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sign Up | Gujarat Engineering Academy</title>
+  <meta charset="UTF-8" />
+  <title>Signup | Gujarat Engineering Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script type="module" src="signup.js"></script>
+  <style>
+    body {
+      background-color: #11212D;
+      color: #F5D6A0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    form {
+      background-color: #1C1C1C;
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(245, 214, 160, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FFE4B5;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background: #F5D6A0;
+      color: #11212D;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #FFE4B5;
+      color: #11212D;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f7e1a6;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      color: #F5D6A0;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h2>Create New Account</h2>
-  <input id="email" type="email" placeholder="Email" />
-  <input id="password" type="password" placeholder="Password" />
-  <button id="registerBtn">Register</button>
+  <form id="signupForm">
+    <h2>📝 Create Account</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+    <div class="link">
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </form>
 </body>
 </html>
