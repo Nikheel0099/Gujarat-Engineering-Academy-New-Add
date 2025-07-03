@@ -35,6 +35,30 @@
       text-decoration: none;
     }
 
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #FFE4B5;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1DA851;
+    }
+
     @media screen and (max-width: 768px) {
       header {
         flex-direction: column;
@@ -50,20 +74,6 @@
         margin: 8px;
       }
     }
-
-    main {
-      padding: 20px;
-    }
-
-    h2 {
-      color: #FFE4B5;
-      text-align: center;
-    }
-
-    p {
-      text-align: center;
-      font-size: 18px;
-    }
   </style>
 </head>
 <body>
@@ -78,8 +88,23 @@
   </header>
 
   <main>
-    <h2>📞 Contact Page</h2>
-    <p>Feel free to reach out via WhatsApp or Email for any queries.</p>
+    <h2>📞 Contact Us</h2>
+    <p>Reach out to our team on WhatsApp:</p>
+
+    <!-- WhatsApp Button 1 - Nikhil -->
+    <a class="whatsapp-button" href="https://wa.me/919016903727" target="_blank">
+      Message Nikhil
+    </a>
+
+    <!-- WhatsApp Button 2 - Vimal -->
+    <a class="whatsapp-button" href="https://wa.me/919328401485" target="_blank">
+      Message Vimal
+    </a>
+
+    <!-- WhatsApp Button 3 - Ankit -->
+    <a class="whatsapp-button" href="https://wa.me/918799179492" target="_blank">
+      Message Ankit
+    </a>
   </main>
 </body>
 </html>
