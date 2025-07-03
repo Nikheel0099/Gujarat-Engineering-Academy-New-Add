@@ -1,29 +1,29 @@
-[
-  {
-    "name": "Rathod Nikhil",
-    "role": "Founder & Instructor",
-    "photo": "nikhil.jpg",
-    "whatsapp": "919016903727",
-    "instagram": "https://instagram.com/nikhil_profile",
-    "youtube": "https://youtube.com/@gujarat_engineering_academy",
-    "telegram": "https://t.me/Nikheel9"
-  },
-  {
-    "name": "Rathod Ankit",
-    "role": "Technical Support",
-    "photo": "ankit.jpg",
-    "whatsapp": "8799179492",
-    "instagram": "https://www.instagram.com/ankit_.rathod_.3245?igsh=MXIxMWYxdWlkYWgxNQ==",
-    "youtube": "https://youtube.com/@gujarat_engineering_academy",
-    "telegram": "https://t.me/https://t.me/+918799179492"
-  },
-  {
-    "name": "Rathod Vimal",
-    "role": "Content Developer",
-    "photo": "vimal.jpg",
-    "whatsapp": "919328401485",
-    "instagram": "https://www.instagram.com/vimalrathod_143?igsh=MWhhdDFodnhhemlrZQ==",
-    "youtube": "https://youtube.com/@gujarat_engineering_academy",
-    "telegram": "https://t.me/gujarat_engineering_academy"
-  }
+[    
+  {    
+    "name": "Rathod Nikhil",    
+    "role": "Founder & Instructor",    
+    "photo": "nikhil.jpg",    
+    "whatsapp": "919016903727",    
+    "instagram": "https://instagram.com/nikhil_profile",    
+    "youtube": "https://youtube.com/@gujarat_engineering_academy",    
+    "telegram": "https://t.me/Nikheel9"    
+  },    
+  {    
+    "name": "Rathod Ankit",    
+    "role": "Technical Support",    
+    "photo": "ankit.jpg",    
+    "whatsapp": "8799179492",    
+    "instagram": "https://www.instagram.com/ankit_.rathod_.3245?igsh=MXIxMWYxdWlkYWgxNQ==",    
+    "youtube": "https://youtube.com/@gujarat_engineering_academy",    
+    "telegram": "https://t.me/https://t.me/918799179492"    
+  },    
+  {    
+    "name": "Rathod Vimal",    
+    "role": "Content Developer",    
+    "photo": "vimal.jpg",    
+    "whatsapp": "919328401485",    
+    "instagram": "https://www.instagram.com/vimalrathod_143?igsh=MWhhdDFodnhhemlrZQ==",    
+    "youtube": "https://youtube.com/@gujarat_engineering_academy",    
+    "telegram": "https://t.me/gujarat_engineering_academy"    
+  }    
 ]
