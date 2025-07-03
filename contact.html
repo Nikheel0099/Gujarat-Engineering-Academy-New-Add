@@ -1,9 +1,8 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact Us | Gujarat Engineering Academy</title>
+  <title>Contact | Gujarat Engineering Academy</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
@@ -11,36 +10,76 @@
       background-color: #11212D;
       color: #F5D6A0;
       font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #11212D;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      margin: 10px 15px;
+      color: #F5D6A0;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 8px;
+      }
+    }
+
+    main {
       padding: 20px;
     }
-    header, footer {
+
+    h2 {
+      color: #FFE4B5;
       text-align: center;
-      margin-bottom: 20px;
     }
-    .contact-buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #F5D6A0;
-      color: #11212D;
-      text-decoration: none;
-      border-radius: 5px;
+
+    p {
+      text-align: center;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h2>📞 Contact Us</h2>
-    <p>Reach out to us through the options below:</p>
+    <img src="logo.jpg" alt="Logo" style="height: 40px; cursor: pointer;" onclick="window.location.href='index.html'">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="info.html">Info</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main class="contact-buttons">
-    <a href="https://wa.me/919016903727" target="_blank">📱 WhatsApp: Nikhil</a>
-    <a href="https://wa.me/919328401485" target="_blank">📱 WhatsApp: Vimal</a>
+  <main>
+    <h2>📞 Contact Page</h2>
+    <p>Feel free to reach out via WhatsApp or Email for any queries.</p>
   </main>
-
-  <footer>
-    &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
-  </footer>
 </body>
 </html>
