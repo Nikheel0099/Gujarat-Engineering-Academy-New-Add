@@ -1,14 +1,13 @@
 // youtube.js
-
-const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y"; // તમારું YouTube API Key
-const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA"; // તમારું YouTube ચેનલ ID
+const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y";
+const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA";
 
 const videoContainer = document.getElementById("youtubeVideos");
 
-fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=6`)
+fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=30`)
   .then(response => response.json())
   .then(data => {
-    if (data.items.length === 0) {
+    if (!data.items || data.items.length === 0) {
       videoContainer.innerHTML = "<p>No videos found.</p>";
       return;
     }
@@ -16,18 +15,19 @@ fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${ch
     data.items.forEach(item => {
       if (item.id.kind === "youtube#video") {
         const videoId = item.id.videoId;
-        const videoTitle = item.snippet.title;
-        const video = `
+        const title = item.snippet.title;
+
+        const card = `
           <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-            <p>${videoTitle}</p>
+            <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+            <p>${title}</p>
           </div>
         `;
-        videoContainer.innerHTML += video;
+        videoContainer.innerHTML += card;
       }
     });
   })
   .catch(error => {
-    console.error("Error fetching videos:", error);
+    console.error("Error loading videos:", error);
     videoContainer.innerHTML = "<p>Failed to load videos.</p>";
   });
