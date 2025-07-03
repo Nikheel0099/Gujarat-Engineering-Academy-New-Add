@@ -12,9 +12,18 @@
     "name": "Rathod Ankit",
     "role": "Senior Instructor",
     "photo": "ankit.jpg",
-    "whatsapp": "919328401485",
+    "whatsapp": "",
     "instagram": "https://instagram.com/ankit",
     "youtube": "https://youtube.com/@ankit",
     "telegram": "https://t.me/ankit"
+  },
+  {
+    "name": "Rathod Vimal",
+    "role": "Mentor",
+    "photo": "vimal.jpg",
+    "whatsapp": "919328401485",
+    "instagram": "https://instagram.com/vimal",
+    "youtube": "https://youtube.com/@vimal",
+    "telegram": "https://t.me/vimal"
   }
 ]
