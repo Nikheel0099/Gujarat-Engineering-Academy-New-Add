@@ -1,20 +1,24 @@
+// admin.js
 import { auth } from './firebase.js';
 import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-// Check if user is logged in
+// ✅ તમારા એડમિન ઇમેલ અહીં લખેલું છે (તમે નહિ બદલશો તો પણ ચાલે)
+const allowedAdminEmail = "nikheelrathod99@gmail.com";
+
+// 🔐 આ કોડ ચેક કરશે કે લોગિન થયેલ યુઝર એડમિન છે કે નહીં
 onAuthStateChanged(auth, (user) => {
-  if (user) {
+  if (user && user.email === allowedAdminEmail) {
     document.getElementById("userEmail").textContent = "Logged in as: " + user.email;
   } else {
-    alert("Please login first!");
-    window.location.href = "login.html";
+    alert("You are not authorized to access the admin panel.");
+    window.location.href = "index.html"; // જો એડમિન નહિ હોય તો હોમપેજ પર મોકલશે
   }
 });
 
-// Logout
+// 🔓 લૉગઆઉટ બટન
 document.getElementById("logoutBtn").addEventListener("click", () => {
   signOut(auth).then(() => {
     alert("Logged out successfully!");
