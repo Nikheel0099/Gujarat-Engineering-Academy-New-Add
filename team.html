@@ -3,37 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <title>Team | Gujarat Engineering Academy</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
   <style>
     body {
       background-color: #11212D;
       color: #F5D6A0;
-      font-family: Poppins, sans-serif;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
     }
+
+    header {
+      background-color: #1E2D3B;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #F5D6A0;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: #F5D6A0;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
     .team-card {
+      background-color: #1E2D3B;
       border: 1px solid #F5D6A0;
       border-radius: 12px;
       margin: 20px;
       padding: 15px;
-      background: #1E2D3B;
       width: 300px;
       display: inline-block;
       vertical-align: top;
+      text-align: center;
     }
+
     .team-card img {
       width: 100%;
-      border-radius: 12px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
     }
+
     .social-links a {
-      margin-right: 10px;
+      margin: 5px;
       color: #F5D6A0;
       text-decoration: none;
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      color: #FFE4B5;
     }
   </style>
 </head>
 <body>
-  <h2>👥 Our Team</h2>
-  <div id="teamContainer">Loading team...</div>
 
+  <!-- 🔝 Header with Navigation -->
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">🎓 Gujarat Engineering Academy</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="info.html">Info</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>👥 Our Team Members</h2>
+    <div id="teamContainer">Loading team...</div>
+  </div>
+
+  <!-- 🔽 Load team data -->
   <script type="module">
     fetch('team.json')
       .then(res => res.json())
@@ -47,15 +105,16 @@
               <h3>${member.name}</h3>
               <p>${member.role}</p>
               <div class="social-links">
-                <a href="https://wa.me/${member.whatsapp}" target="_blank">📱 WhatsApp</a>
-                <a href="${member.instagram}" target="_blank">📷 Instagram</a>
-                <a href="${member.youtube}" target="_blank">▶️ YouTube</a>
-                <a href="${member.telegram}" target="_blank">📢 Telegram</a>
+                ${member.whatsapp ? `<a href="https://wa.me/${member.whatsapp}" target="_blank">📱 WhatsApp</a>` : ''}
+                ${member.instagram ? `<a href="${member.instagram}" target="_blank">📷 Instagram</a>` : ''}
+                ${member.youtube ? `<a href="${member.youtube}" target="_blank">▶️ YouTube</a>` : ''}
+                ${member.telegram ? `<a href="${member.telegram}" target="_blank">📢 Telegram</a>` : ''}
               </div>
             </div>
           `;
         });
       });
   </script>
+
 </body>
 </html>
