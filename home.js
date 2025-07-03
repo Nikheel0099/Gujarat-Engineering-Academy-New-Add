@@ -1,28 +1,30 @@
-// home.js
-const channelId = "UCXl7e6EJhJkzPgSTqNVE7FA"; // તમારા YouTube ચેનલનું ID મુકવું
-const maxResults = 6; // કેટલાં video લોડ કરવા છે
+// Home.js
 
-const apiKey = "AIzaSyAmGSYe-IOkba8to5KglWQwtWDoYeWa-n0"; // તમારું YouTube API Key
+const videosContainer = document.getElementById("videosContainer");
 
-const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
+// Gujarat Engineering Academy YouTube uploads playlist ID
+const uploadsPlaylistId = "UUAKHRP0u6JIzlRup3oNyf-A";
 
-fetch(apiUrl)
+// YouTube Data API Key
+const apiKey = "AIzaSyAmGSYe-IOkba8to5KglWQwtWDoYeWa-n0";
+
+fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=${uploadsPlaylistId}&key=${apiKey}`)
   .then(response => response.json())
   .then(data => {
-    const container = document.getElementById("videosContainer");
-    container.innerHTML = ""; // Clear Loading...
+    videosContainer.innerHTML = "";
     data.items.forEach(item => {
-      if (item.id.kind === "youtube#video") {
-        const videoId = item.id.videoId;
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/${videoId}`;
-        iframe.allowFullscreen = true;
-        iframe.className = "video";
-        container.appendChild(iframe);
-      }
+      const videoId = item.snippet.resourceId.videoId;
+      const title = item.snippet.title;
+      const videoElement = `
+        <div style="margin-bottom: 20px;">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" allowfullscreen></iframe>
+          <p style="color: #FFE4B5;">${title}</p>
+        </div>`;
+      videosContainer.innerHTML += videoElement;
     });
   })
-  .catch(err => {
-    document.getElementById("videosContainer").innerText = "Failed to load videos.";
-    console.error("YouTube API Error:", err);
+  .catch(error => {
+    console.error("Error fetching YouTube videos:", error);
+    videosContainer.innerHTML = "❌ Failed to load videos.";
   });
