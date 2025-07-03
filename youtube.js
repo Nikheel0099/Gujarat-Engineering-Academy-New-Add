@@ -1,6 +1,7 @@
 // youtube.js
+
 const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y"; // તમારું YouTube API Key
-const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA"; // તમારું ચેનલ ID
+const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA"; // તમારું YouTube ચેનલ ID
 
 const videoContainer = document.getElementById("youtubeVideos");
 
@@ -18,7 +19,7 @@ fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${ch
         const videoTitle = item.snippet.title;
         const video = `
           <div class="video-card">
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
             <p>${videoTitle}</p>
           </div>
         `;
