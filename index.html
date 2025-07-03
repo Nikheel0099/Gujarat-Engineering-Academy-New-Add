@@ -1,81 +1,136 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
+<!-- index.html --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gujarat Engineering Academy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" src="Home.js"></script>
   <style>
-    body { background:#11212D; color:#F5D6A0; font-family:Poppins, sans-serif; margin:0; padding:20px; }
-    header, footer { display:flex; justify-content:space-between; align-items:center; }
-    header img { height:60px; cursor:pointer; }
-    nav a { margin:0 10px; color:#FFE4B5; font-weight:bold; text-decoration:none; cursor:pointer; }
-    h2 { text-align:center; color:#FFE4B5; margin-top:10px; }
-    .video-grid { display:grid; gap:20px; margin:20px 0; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); }
-    @media (min-width:1024px) { .video-grid { grid-template-columns:repeat(4,1fr); } }
-    .video-card { background:#1c2f40; padding:10px; border-radius:8px; }
-    iframe { width:100%; height:200px; border:none; border-radius:6px; }
-    .video-card p { color:#FFE4B5; margin-top:8px; font-size:14px; }
-    .buttons, .staff-buttons { text-align:center; margin:20px 0; }
-    .btn { background:#F5D6A0; color:#11212D; padding:10px 20px; border-radius:6px; margin:0 10px; font-weight:bold; text-decoration:none; }
-    .btn:hover { background:#FFE4B5; }
-    footer { margin-top:40px; flex-direction:column; text-align:center; }
-    footer img { height:100px; margin:10px 0; cursor:pointer; }
-    .footer-message { color:#FFE4B5; font-size:15px; }
+    body {
+      background-color: #11212D;
+      color: #F5D6A0;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #11212D;
+  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  margin: 10px 15px;
+  color: #F5D6A0;
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+  color: #FFE4B5;
+}
+
+#youtubeVideos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.video-card p {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+#videoStatus {
+  text-align: center;
+  font-size: 16px;
+  padding-top: 20px;
+  color: #F5D6A0;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 8px;
+  }
+}
+
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
-    <img src="logo.jpg" alt="Logo Left" id="logoLeft">
+    <img src="logo.jpg" alt="Logo" style="height: 40px; cursor: pointer;" onclick="window.location.href='index.html'">
     <nav>
-      <a id="homeLink">Home</a>
-      <a href="blog.html">Staff Info</a>
+      <a href="index.html">Home</a>
       <a href="team.html">Team</a>
-      <a href="javascript:void(0)" id="whatsAppsBtn">Contact on WhatsApp</a>
+      <a href="info.html">Info</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <img src="logo.jpg" alt="Logo Right" id="logoRight">
-  </header>
-
-  <!-- Welcome + big logo -->
-  <section style="text-align:center; margin:20px 0;">
+  </header>  <main style="padding: 20px;">
     <h2>🎓 Welcome to Gujarat Engineering Academy</h2>
-    <img src="logo.jpg" alt="Big Logo" style="width:160px; border-radius:20px; margin-top:15px;">
-  </section>
+    <p style="text-align: center;">👇 Latest videos from our YouTube channel:</p>
+    <div id="videoStatus">Loading videos...</div>
+    <div id="youtubeVideos"></div>
+  </main>  <footer style="text-align: center; padding: 10px; color: #FFE4B5; background-color: #11212D;">
+    &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
+  </footer>  <script>
+    const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y";
+    const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA";
+    const videoContainer = document.getElementById("youtubeVideos");
+    const videoStatus = document.getElementById("videoStatus");
 
-  <!-- Videos -->
-  <section>
-    <div class="video-grid" id="youtubeVideos">Loading videos...</div>
-  </section>
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=12`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.items.length === 0) {
+          videoStatus.textContent = "No videos found.";
+          return;
+        }
 
-  <!-- Buttons -->
-  <div class="buttons">
-    <a class="btn" href="blog.html">📚 Staff Info</a>
-    <a class="btn" href="javascript:void(0)" id="waWhats1">WhatsApp 9016903727</a>
-    <a class="btn" href="javascript:void(0)" id="waWhats2">WhatsApp 9328401485</a>
-  </div>
+        videoStatus.style.display = "none";
 
-  <!-- Footer -->
-  <footer>
-    <img src="logo.jpg" alt="Big Footer Logo" id="logoFooter">
-    <p class="footer-message">
-      Gujarat Engineering Academy – Free videos, blogs, doubt support for diploma & degree students.
-    </p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="youtube.js"></script>
-  <script>
-    // logos & home navigation clickable
-    document.getElementById('logoLeft').onclick = document.getElementById('logoRight').onclick = document.getElementById('logoFooter').onclick = () => location.href = 'https://www.youtube.com/@Gujarat_Engineering_Academy';
-    document.getElementById('homeLink').onclick = () => location.href = 'index.html';
-
-    // WhatsApp buttons
-    document.getElementById('waWhats1').onclick = () => window.open('https://wa.me/919016903727', '_blank');
-    document.getElementById('waWhats2').onclick = () => window.open('https://wa.me/919328401485', '_blank');
-  </script>
-
-</body>
+        data.items.forEach(item => {
+          if (item.id.kind === "youtube#video") {
+            const videoId = item.id.videoId;
+            const videoTitle = item.snippet.title;
+            const video = `
+              <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                <p>${videoTitle}</p>
+              </div>
+            `;
+            videoContainer.innerHTML += video;
+          }
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching videos:", error);
+        videoStatus.textContent = "Failed to load videos.";
+      });
+  </script></body>
 </html>
