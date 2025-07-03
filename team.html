@@ -1,116 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Team - Gujarat Engineering Academy</title>
+  <meta charset="UTF-8" />
+  <title>Team | Gujarat Engineering Academy</title>
   <style>
     body {
       background-color: #11212D;
-      font-family: 'Poppins', sans-serif;
       color: #F5D6A0;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      margin-bottom: 30px;
-    }
-    .team-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
+      font-family: Poppins, sans-serif;
     }
     .team-card {
-      background-color: #1A2B3C;
+      border: 1px solid #F5D6A0;
       border-radius: 12px;
-      padding: 20px;
-      width: 260px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      margin: 20px;
+      padding: 15px;
+      background: #1E2D3B;
+      width: 300px;
+      display: inline-block;
+      vertical-align: top;
     }
     .team-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #F5D6A0;
-      margin-bottom: 10px;
+      width: 100%;
+      border-radius: 12px;
     }
-    .team-card h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
-    }
-    .team-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #cccccc;
-    }
-    .social-icons {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    .social-icons a {
-      background-color: #F5D6A0;
-      color: #11212D;
-      padding: 6px 8px;
-      border-radius: 6px;
-      font-size: 14px;
+    .social-links a {
+      margin-right: 10px;
+      color: #F5D6A0;
       text-decoration: none;
-      transition: 0.3s;
-    }
-    .social-icons a:hover {
-      background-color: #FFD700;
-      color: #000;
     }
   </style>
 </head>
 <body>
-  <h1>Meet Our Team</h1>
-  <div class="team-container" id="teamContainer">
-    <!-- Firebase થી લોડ થયેલા ડેટા અહીં આવશે -->
-  </div>
+  <h2>👥 Our Team</h2>
+  <div id="teamContainer">Loading team...</div>
 
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "YOUR_FIREBASE_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "XXXXXXX",
-      appId: "APP_ID"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const teamContainer = document.getElementById("teamContainer");
-
-    async function loadTeam() {
-      const querySnapshot = await getDocs(collection(db, "teamMembers"));
-      querySnapshot.forEach((doc) => {
-        const member = doc.data();
-        const memberHTML = `
-          <div class="team-card">
-            <img src="${member.photo}" alt="${member.name}" />
-            <h3>${member.name}</h3>
-            <p>${member.role}</p>
-            <div class="social-icons">
-              ${member.whatsapp ? `<a href="https://wa.me/${member.whatsapp}" target="_blank">WhatsApp</a>` : ''}
-              ${member.instagram ? `<a href="${member.instagram}" target="_blank">Instagram</a>` : ''}
-              ${member.youtube ? `<a href="${member.youtube}" target="_blank">YouTube</a>` : ''}
-              ${member.telegram ? `<a href="${member.telegram}" target="_blank">Telegram</a>` : ''}
+    fetch('team.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('teamContainer');
+        container.innerHTML = '';
+        data.forEach(member => {
+          container.innerHTML += `
+            <div class="team-card">
+              <img src="${member.photo}" alt="${member.name}" />
+              <h3>${member.name}</h3>
+              <p>${member.role}</p>
+              <div class="social-links">
+                <a href="https://wa.me/${member.whatsapp}" target="_blank">📱 WhatsApp</a>
+                <a href="${member.instagram}" target="_blank">📷 Instagram</a>
+                <a href="${member.youtube}" target="_blank">▶️ YouTube</a>
+                <a href="${member.telegram}" target="_blank">📢 Telegram</a>
+              </div>
             </div>
-          </div>
-        `;
-        teamContainer.innerHTML += memberHTML;
+          `;
+        });
       });
-    }
-
-    loadTeam();
   </script>
 </body>
 </html>
