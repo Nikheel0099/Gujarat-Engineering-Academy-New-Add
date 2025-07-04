@@ -1,4 +1,4 @@
-// youtube.js (Updated to fetch ALL videos)
+// youtube.js
 const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y";
 const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA";
 const videoContainer = document.getElementById("youtubeVideos");
@@ -15,7 +15,7 @@ function fetchVideos(pageToken = "") {
       allVideos = allVideos.concat(data.items.filter(item => item.id.kind === "youtube#video"));
 
       if (data.nextPageToken) {
-        fetchVideos(data.nextPageToken); // Recursive call for more pages
+        fetchVideos(data.nextPageToken);
       } else {
         renderVideos(allVideos);
       }
@@ -37,4 +37,4 @@ function renderVideos(videos) {
   });
 }
 
-fetchVideos(); // Initial call
+fetchVideos();
