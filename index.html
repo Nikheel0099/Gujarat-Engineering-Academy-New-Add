@@ -1,86 +1,11 @@
-<!-- index.html --><!DOCTYPE html><html lang="en">
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gujarat Engineering Academy</title>
+  <title>Home | Gujarat Engineering Academy</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="module" src="Home.js"></script>
-  <style>
-    body {
-      background-color: #11212D;
-      color: #F5D6A0;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #11212D;
-  flex-wrap: wrap;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-nav a {
-  margin: 10px 15px;
-  color: #F5D6A0;
-  text-decoration: none;
-}
-
-h2 {
-  text-align: center;
-  color: #FFE4B5;
-}
-
-#youtubeVideos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.video-card iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
-}
-
-.video-card p {
-  text-align: center;
-  margin-top: 8px;
-  font-weight: 500;
-}
-
-#videoStatus {
-  text-align: center;
-  font-size: 16px;
-  padding-top: 20px;
-  color: #F5D6A0;
-}
-
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  nav a {
-    margin: 8px;
-  }
-}
-
-  </style>
 </head>
 <body>
   <header>
@@ -90,47 +15,19 @@ h2 {
       <a href="team.html">Team</a>
       <a href="info.html">Info</a>
       <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
     </nav>
-  </header>  <main style="padding: 20px;">
-    <h2>🎓 Welcome to Gujarat Engineering Academy</h2>
-    <p style="text-align: center;">👇 Latest videos from our YouTube channel:</p>
-    <div id="videoStatus">Loading videos...</div>
-    <div id="youtubeVideos"></div>
-  </main>  <footer style="text-align: center; padding: 10px; color: #FFE4B5; background-color: #11212D;">
+  </header>
+
+  <main style="padding: 20px; text-align: center;">
+    <h2>📺 Latest YouTube Videos</h2>
+    <div id="youtubeVideos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px;"></div>
+  </main>
+
+  <footer style="text-align: center; padding: 10px; color: #FFE4B5; background-color: #11212D;">
     &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
-  </footer>  <script>
-    const apiKey = "AIzaSyC05S7rCzyWTR8Xn5WBw-SrflmF-kclO5Y";
-    const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA";
-    const videoContainer = document.getElementById("youtubeVideos");
-    const videoStatus = document.getElementById("videoStatus");
+  </footer>
 
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=12`)
-      .then(response => response.json())
-      .then(data => {
-        if (data.items.length === 0) {
-          videoStatus.textContent = "No videos found.";
-          return;
-        }
-
-        videoStatus.style.display = "none";
-
-        data.items.forEach(item => {
-          if (item.id.kind === "youtube#video") {
-            const videoId = item.id.videoId;
-            const videoTitle = item.snippet.title;
-            const video = `
-              <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-                <p>${videoTitle}</p>
-              </div>
-            `;
-            videoContainer.innerHTML += video;
-          }
-        });
-      })
-      .catch(error => {
-        console.error("Error fetching videos:", error);
-        videoStatus.textContent = "Failed to load videos.";
-      });
-  </script></body>
+  <script type="module" src="youtube.js"></script>
+</body>
 </html>
