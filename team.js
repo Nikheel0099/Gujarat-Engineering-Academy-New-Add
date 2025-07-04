@@ -13,10 +13,10 @@ fetch("team.json")
         <h3>${member.name}</h3>
         <p>${member.role}</p>
         <div class="social-icons">
-          ${member.whatsapp ? `<a href="https://wa.me/${member.whatsapp}" target="_blank"><img src="icons/whatsapp.png" alt="WhatsApp" class="icon"/></a>` : ''}
-          ${member.instagram ? `<a href="${member.instagram}" target="_blank"><img src="icons/instagram.png" alt="Instagram" class="icon"/></a>` : ''}
-          ${member.youtube ? `<a href="${member.youtube}" target="_blank"><img src="icons/youtube.png" alt="YouTube" class="icon"/></a>` : ''}
-          ${member.telegram ? `<a href="${member.telegram}" target="_blank"><img src="icons/telegram.png" alt="Telegram" class="icon"/></a>` : ''}
+          ${member.whatsapp ? `<a href="https://wa.me/${member.whatsapp}" target="_blank"><img src="icons/whatsapp.png" class="icon" alt="WhatsApp" /></a>` : ''}
+          ${member.instagram ? `<a href="${member.instagram}" target="_blank"><img src="icons/instagram.png" class="icon" alt="Instagram" /></a>` : ''}
+          ${member.youtube ? `<a href="${member.youtube}" target="_blank"><img src="icons/youtube.png" class="icon" alt="YouTube" /></a>` : ''}
+          ${member.telegram ? `<a href="${member.telegram}" target="_blank"><img src="icons/telegram.png" class="icon" alt="Telegram" /></a>` : ''}
         </div>
       `;
 
