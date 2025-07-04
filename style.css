@@ -1,4 +1,5 @@
-/* style.css (team section માટે minimum required styles) */
+/* style.css (team section + social icons + buttons) */
+
 #teamContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -34,9 +35,56 @@
   font-size: 0.95em;
 }
 
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .social-icons a {
   margin: 0 5px;
+  font-size: 22px;
   color: #F5D6A0;
   text-decoration: none;
-  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Icons Specific Colors */
+.social-icons a.whatsapp { color: #25D366; }
+.social-icons a.instagram { color: #E1306C; }
+.social-icons a.youtube { color: #FF0000; }
+.social-icons a.telegram { color: #0088CC; }
+
+/* Contact Buttons */
+.contact-buttons {
+  margin-top: 10px;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.contact-button.whatsapp {
+  background-color: #25D366;
+}
+
+.contact-button.call {
+  background-color: #1C90F3;
+}
+
+.contact-button i {
+  margin-right: 8px;
 }
