@@ -1,15 +1,23 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Home | Gujarat Engineering Academy</title>
+  <title>Gujarat Engineering Academy</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Ensure color scheme matches */
+    body { background:#11212D; color:#F5D6A0; font-family:Poppins, sans-serif; padding:20px; margin:0; }
+    header, footer { background:#11212D; }
+    nav a { color:#F5D6A0; margin:0 10px; }
+    #youtubeVideos { display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); margin-top:20px; }
+    .video-card iframe { width:100%; height:180px; border:none; }
+    .video-card p { margin:5px 0; font-size:14px; }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="logo.jpg" alt="Logo" style="height: 40px; cursor: pointer;" onclick="window.location.href='index.html'">
+  <header style="display:flex; justify-content:space-between; align-items:center;">
+    <img src="logo.jpg" alt="Logo" style="height:40px; cursor:pointer;" onclick="location='index.html'">
     <nav>
       <a href="index.html">Home</a>
       <a href="team.html">Team</a>
@@ -19,12 +27,12 @@
     </nav>
   </header>
 
-  <main style="padding: 20px; text-align: center;">
+  <main>
     <h2>📺 Latest YouTube Videos</h2>
-    <div id="youtubeVideos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px;"></div>
+    <div id="youtubeVideos">Loading videos...</div>
   </main>
 
-  <footer style="text-align: center; padding: 10px; color: #FFE4B5; background-color: #11212D;">
+  <footer style="text-align:center; padding:10px; color:#FFE4B5;">
     &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
   </footer>
 
