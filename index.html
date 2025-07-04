@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Gujarat Engineering Academy</title>
@@ -28,20 +27,26 @@
       color: #FFE4B5;
       text-align: center;
     }
-    iframe {
+    #youtubeVideos {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 20px;
+    }
+    .video-card iframe {
       width: 100%;
-      max-width: 480px;
-      height: 270px;
-      display: block;
-      margin: 0 auto;
+      height: 180px;
       border: none;
+    }
+    .video-card p {
+      margin: 5px 0;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
-  <header style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px;">
-    <img src="logo.jpg" alt="Logo" style="height:40px; cursor:pointer;" onclick="location='index.html'">
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+    <img src="logo.jpg" alt="Logo" style="height: 40px; cursor: pointer;" onclick="location='index.html'">
     <nav>
       <a href="index.html">Home</a>
       <a href="team.html">Team</a>
@@ -49,20 +54,10 @@
       <a href="contact.html">Contact</a>
       <a href="login.html">Login</a>
     </nav>
-  </header>
-
-  <main>
-    <h2>📺 Latest YouTube Video</h2>
-    <iframe 
-      src="https://www.youtube.com/embed?listType=user_uploads&list=gujarat_engineering_academy" 
-      allowfullscreen 
-      title="Latest Video">
-    </iframe>
-  </main>
-
-  <footer style="text-align:center; padding:10px; color:#FFE4B5;">
+  </header>  <main>
+    <h2>📺 Latest YouTube Videos</h2>
+    <div id="youtubeVideos">Loading videos...</div>
+  </main>  <footer style="text-align: center; padding: 10px; color: #FFE4B5;">
     &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
-  </footer>
-
-</body>
+  </footer>  <script type="module" src="youtube.js"></script></body>
 </html>
