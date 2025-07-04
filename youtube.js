@@ -48,4 +48,4 @@ function renderVideos(videos) {
   });
 }
 
-fetchVideos(); // Initial call
+fetchVideos(); // Initial call 
