@@ -1,29 +1,40 @@
-// youtube.js (with smart fallback to playlist embed) const apiKey = "AIzaSyCRjBfTD3w4tmRAyoGxsLrKR9-DSJPTzWc"; // તમારા YouTube Data API v3 Key const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA"; // Gujarat Engineering Academy Channel ID const videoContainer = document.getElementById("youtubeVideos");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gujarat Engineering Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { background:#11212D; color:#F5D6A0; font-family:Poppins, sans-serif; padding:20px; margin:0; }
+    header, footer { background:#11212D; }
+    nav a { color:#F5D6A0; margin:0 10px; text-decoration: none; }
+    #youtubeVideos { display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); margin-top:20px; }
+    .video-card iframe { width:100%; height:180px; border:none; }
+    .video-card p { margin:5px 0; font-size:14px; }
+  </style>
+</head>
+<body>
+  <header style="display:flex; justify-content:space-between; align-items:center;">
+    <img src="logo.jpg" alt="Logo" style="height:40px; cursor:pointer;" onclick="location='index.html'">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="info.html">Info</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
 
-let allVideos = [];
+  <main>
+    <h2>📺 Latest YouTube Videos</h2>
+    <div id="youtubeVideos">Loading videos...</div>
+  </main>
 
-function fetchVideos(pageToken = "") { const url = https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=50&pageToken=${pageToken};
+  <footer style="text-align:center; padding:10px; color:#FFE4B5;">
+    &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
+  </footer>
 
-fetch(url) .then(res => res.json()) .then(data => { if (!data.items) throw new Error("No videos found");
-
-allVideos = allVideos.concat(data.items.filter(item => item.id.kind === "youtube#video"));
-
-  if (data.nextPageToken) {
-    fetchVideos(data.nextPageToken); // Fetch next page recursively
-  } else {
-    renderVideos(allVideos);
-  }
-})
-.catch(err => {
-  console.error("YouTube API Error:", err.message);
-  fallbackToPlaylist();
-});
-
-}
-
-function renderVideos(videos) { videoContainer.innerHTML = ""; videos.forEach(item => { videoContainer.innerHTML += <div class="video-card"> <iframe src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe> <p>${item.snippet.title}</p> </div>; }); }
-
-function fallbackToPlaylist() { videoContainer.innerHTML = <p style="color: #ff4d4d; font-weight: bold; text-align: center;">📛 Failed to load videos via API. Loading from YouTube playlist...</p> <div style="display: flex; justify-content: center;"> <iframe width="100%" height="400" src="https://www.youtube.com/embed/videoseries?list=UUJ8RxJgqv-UeXZbJbQaQ_TA" frameborder="0" allowfullscreen></iframe> </div>; }
-
-fetchVideos();
-
+  <script type="module" src="youtube.js"></script>
+</body>
+</html>
