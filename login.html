@@ -67,6 +67,18 @@ button:hover {
   text-decoration: none;
 }
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
   </style>
 </head>
 <body>
@@ -74,10 +86,16 @@ button:hover {
     <h2>🔐 User Login</h2>
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
-    <button type="submit" id="loginBtn">Login</button>
+    <button type="submit">Login</button>
     <div class="link">
       <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
     </div>
+    <div class="social-icons">
+      <a href="#"><img src="icons/whatsapp.png" alt="WhatsApp"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="icons/youtube.png" alt="YouTube"></a>
+      <a href="#"><img src="icons/telegram.png" alt="Telegram"></a>
+    </div>
   </form>
 </body>
-</html> 
+</html>
