@@ -34,6 +34,16 @@
       height: 450px;
       border: none;
     }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .video-card {
+      width: 100%;
+      max-width: 480px;
+      margin: 10px auto;
+    }
   </style>
 </head>
 <body>
@@ -50,14 +60,9 @@
   </header>
 
   <main>
-    <h2>📺 Our YouTube Playlist</h2>
-    <div style="text-align: center;">
-      <iframe 
-        src="https://www.youtube.com/embed/videoseries?list=UUJ8RxJgqv-UeXZbJbQaQ_TA" 
-        title="YouTube videos"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+    <h2>📺 Our Latest YouTube Videos</h2>
+    <div id="videoSection" class="video-container">
+      <p style="text-align: center;">Loading videos...</p>
     </div>
   </main>
 
@@ -65,5 +70,47 @@
     &copy; 2025 Gujarat Engineering Academy. All Rights Reserved.
   </footer>
 
+  <script>
+    const apiKey = "AIzaSyCRjBfTD3w4tmRAyoGxsLrKR9-DSJPTzWc"; // ✅ your new key
+    const channelId = "UCJ8RxJgqv-UeXZbJbQaQ_TA";
+    const videoSection = document.getElementById("videoSection");
+
+    async function loadYouTubeVideos() {
+      try {
+        const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=6`);
+        const data = await res.json();
+
+        if (data.items && data.items.length > 0) {
+          videoSection.innerHTML = ""; // Clear "Loading..."
+          data.items.forEach(item => {
+            if (item.id.kind === "youtube#video") {
+              const videoId = item.id.videoId;
+              const title = item.snippet.title;
+              videoSection.innerHTML += `
+                <div class="video-card">
+                  <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+                  <p style="text-align: center;">${title}</p>
+                </div>`;
+            }
+          });
+        } else {
+          throw new Error("No videos");
+        }
+      } catch (error) {
+        console.warn("🔁 API quota exceeded or failed, loading fallback playlist...");
+        videoSection.innerHTML = `
+          <div style="width: 100%; text-align: center;">
+            <iframe 
+              src="https://www.youtube.com/embed/videoseries?list=UUJ8RxJgqv-UeXZbJbQaQ_TA" 
+              allowfullscreen 
+              title="Playlist Backup">
+            </iframe>
+          </div>
+        `;
+      }
+    }
+
+    loadYouTubeVideos();
+  </script>
 </body>
 </html>
