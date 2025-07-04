@@ -44,19 +44,61 @@
       color: #FFE4B5;
     }
 
-    .whatsapp-button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background-color: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    .contact-card {
+      background-color: #1C1C1C;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(245, 214, 160, 0.2);
     }
 
-    .whatsapp-button:hover {
+    .contact-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .phone-number {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #FFE4B5;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      background-color: #25D366;
+    }
+
+    .whatsapp:hover {
       background-color: #1DA851;
+    }
+
+    .call {
+      background-color: #007bff;
+    }
+
+    .call:hover {
+      background-color: #0056b3;
     }
 
     @media screen and (max-width: 768px) {
@@ -88,23 +130,37 @@
   </header>
 
   <main>
-    <h2>📞 Contact Us</h2>
-    <p>Reach out to our team on WhatsApp:</p>
+    <h2>📞 Contact Our Team</h2>
 
-    <!-- WhatsApp Button 1 - Nikhil -->
-    <a class="whatsapp-button" href="https://wa.me/919016903727" target="_blank">
-      Message Nikhil
-    </a>
+    <!-- Card 1 - Nikhil -->
+    <div class="contact-card">
+      <div class="contact-name">Rathod Nikhil</div>
+      <div class="phone-number">📞 +91 90169 03727</div>
+      <div class="button-group">
+        <a class="contact-button whatsapp" href="https://wa.me/919016903727" target="_blank">💬 WhatsApp</a>
+        <a class="contact-button call" href="tel:+919016903727">📞 Call</a>
+      </div>
+    </div>
 
-    <!-- WhatsApp Button 2 - Vimal -->
-    <a class="whatsapp-button" href="https://wa.me/919328401485" target="_blank">
-      Message Vimal
-    </a>
+    <!-- Card 2 - Vimal -->
+    <div class="contact-card">
+      <div class="contact-name">Rathod Vimal</div>
+      <div class="phone-number">📞 +91 93284 01485</div>
+      <div class="button-group">
+        <a class="contact-button whatsapp" href="https://wa.me/919328401485" target="_blank">💬 WhatsApp</a>
+        <a class="contact-button call" href="tel:+919328401485">📞 Call</a>
+      </div>
+    </div>
 
-    <!-- WhatsApp Button 3 - Ankit -->
-    <a class="whatsapp-button" href="https://wa.me/918799179492" target="_blank">
-      Message Ankit
-    </a>
+    <!-- Card 3 - Ankit -->
+    <div class="contact-card">
+      <div class="contact-name">Rathod Ankit</div>
+      <div class="phone-number">📞 +91 87991 79492</div>
+      <div class="button-group">
+        <a class="contact-button whatsapp" href="https://wa.me/918799179492" target="_blank">💬 WhatsApp</a>
+        <a class="contact-button call" href="tel:+918799179492">📞 Call</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
